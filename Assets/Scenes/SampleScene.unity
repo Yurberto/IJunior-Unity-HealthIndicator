@@ -183,7 +183,7 @@ MonoBehaviour:
   m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   m_Type: 1
   m_PreserveAspect: 0
-  m_FillCenter: 1
+  m_FillCenter: 0
   m_FillMethod: 4
   m_FillAmount: 1
   m_FillClockwise: 1
@@ -357,7 +357,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 218677323}
-  - component: {fileID: 218677322}
+  - component: {fileID: 218677324}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -365,20 +365,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &218677322
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 218677321}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58804ea5c7701fe4cbf967e36b1f9929, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _maxHealth: 100
-  _health: 36.7
 --- !u!4 &218677323
 Transform:
   m_ObjectHideFlags: 0
@@ -394,6 +380,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &218677324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 218677321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94e273051bc518945aee5727a24846be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxValue: 100
+  _currentValue: 100
 --- !u!1 &375638165
 GameObject:
   m_ObjectHideFlags: 0
@@ -490,9 +490,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e154d628c6adcc74bac8454c179bde09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _vitality: {fileID: 218677322}
-  _pointsPerTimePeriod: 0.1
-  _timePeriod: 0.005
+  Health: {fileID: 218677324}
+  _changeSpeed: 0.5
+  _timeFactor: 100
 --- !u!114 &588986459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1089,7 +1089,7 @@ MonoBehaviour:
   m_Sprite: {fileID: 21300000, guid: 1258ac417dd158a48b05eeedb739c469, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
-  m_FillCenter: 1
+  m_FillCenter: 0
   m_FillMethod: 4
   m_FillAmount: 1
   m_FillClockwise: 1
@@ -1116,7 +1116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74932bd7d4321cb40904f81d59a3cf7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _vitality: {fileID: 218677322}
+  Health: {fileID: 218677324}
   _damage: 20
 --- !u!1 &1571752647
 GameObject:
@@ -1288,7 +1288,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb312b8df3b79584a8fa312fded2a8c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _vitality: {fileID: 218677322}
+  Health: {fileID: 218677324}
 --- !u!1 &1933427375
 GameObject:
   m_ObjectHideFlags: 0
@@ -1339,7 +1339,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0644ef07c1fa6e74d901ba9b7dcf34c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _vitality: {fileID: 218677322}
+  Health: {fileID: 218677324}
 --- !u!114 &1933427378
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1360,7 +1360,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 36/100
+  m_text: '100/100
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5592e43dbb63a6a409fc47378d95d859, type: 2}
   m_sharedMaterial: {fileID: 4650228338551532210, guid: 5592e43dbb63a6a409fc47378d95d859, type: 2}
@@ -1369,8 +1371,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1393,7 +1395,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 3
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -1615,7 +1617,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97dde0b7c30a8ba48840bb291a74d767, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _vitality: {fileID: 218677322}
+  Health: {fileID: 218677324}
   _healAmount: 20
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
