@@ -2,7 +2,7 @@ using UnityEngine;
 
 public abstract class HealthBar : MonoBehaviour
 {
-    [SerializeField] protected Vitality Vitality;
+    [SerializeField] protected Health Vitality;
 
     protected void OnEnable()
     {

@@ -22,11 +22,13 @@ public class SmoothHealthBar : SliderHealthBar
         float target = Vitality.CurrentHealth / Vitality.MaxHealth;
         float time = 0;
 
+        var wait = new WaitForSeconds(Time.deltaTime);
+
         while (Slider.value != target)
         {
             Slider.value = Mathf.Lerp(start, target, time);
             time += _changeSpeed / _timeFactor;
-            yield return null;
+            yield return wait;
         }
     }
 }
