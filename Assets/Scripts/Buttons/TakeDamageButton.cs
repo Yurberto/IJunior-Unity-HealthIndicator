@@ -8,6 +8,6 @@ public class TakeDamageButton : VitalityButton
 
     protected override void HandleClick()
     {
-        Vitality.TakeDamage(_damage);   
+        Health.TakeDamage(_damage);   
     }
 }

@@ -19,7 +19,7 @@ public class SmoothHealthBar : SliderHealthBar
     private IEnumerator ChangeHealthCoroutine()
     {
         float start = Slider.value;
-        float target = Vitality.CurrentHealth / Vitality.MaxHealth;
+        float target = Health.CurrentHealth / Health.MaxHealth;
         float time = 0;
 
         var wait = new WaitForSeconds(Time.deltaTime);

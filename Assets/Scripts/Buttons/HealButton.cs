@@ -8,6 +8,6 @@ public class HealButton : VitalityButton
 
     protected override void HandleClick()
     {
-        Vitality.Heal(_healAmount);
+        Health.Heal(_healAmount);
     }
 }

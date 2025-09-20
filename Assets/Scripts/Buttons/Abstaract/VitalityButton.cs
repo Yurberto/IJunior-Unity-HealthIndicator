@@ -4,7 +4,7 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Button))]
 public abstract class VitalityButton : MonoBehaviour
 {
-    [SerializeField] protected Health Vitality;
+    [SerializeField] protected Health Health;
     
     protected Button Button;
 

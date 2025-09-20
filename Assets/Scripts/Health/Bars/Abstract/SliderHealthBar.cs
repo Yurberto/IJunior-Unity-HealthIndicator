@@ -13,6 +13,6 @@ public abstract class SliderHealthBar : HealthBar
         Slider.minValue = 0;
         Slider.maxValue = 1;
 
-        Slider.value = Vitality.CurrentHealth / Vitality.MaxHealth;
+        Slider.value = Health.CurrentHealth / Health.MaxHealth;
     }
 }
