@@ -3,27 +3,30 @@ using UnityEngine;
 
 public class SmoothHealthBar : SliderHealthBar
 {
-    [SerializeField, Range(0.1f, 10.0f)] private float _pointsPerTimePeriod = 1.0f;
-    [SerializeField, Range(0.0f, 1.0f)] private float _timePeriod = 0.1f;
+    [SerializeField, Range(0.01f, 1.0f)] private float _changeSpeed = 1.0f;
+    [SerializeField, Range(0.1f, 100.0f)] private float _timeFactor = 100.0f;
 
-    private void Start()
-    {
-        _slider.value = _healthStats.CurrentHealth;
-    }
+    private Coroutine _healthChanger;
 
     protected override void UpdateHealthData()
     {
-        StartCoroutine(ChangeHealthCoroutine());
+        if (_healthChanger != null) 
+            StopCoroutine(_healthChanger);
+
+        _healthChanger = StartCoroutine(ChangeHealthCoroutine());
     }
 
     private IEnumerator ChangeHealthCoroutine()
     {
-        var wait = new WaitForSeconds(_timePeriod);
+        float start = _slider.value;
+        float target = _vitality.CurrentHealth / _vitality.MaxHealth;
+        float time = 0;
 
-        while (_slider.value != _healthStats.CurrentHealth)
+        while (_slider.value != target)
         {
-            _slider.value = Mathf.MoveTowards(_slider.value, _healthStats.CurrentHealth, _pointsPerTimePeriod);
-            yield return wait;
+            _slider.value = Mathf.Lerp(start, target, time);
+            time += _changeSpeed / _timeFactor;
+            yield return null;
         }
     }
 }

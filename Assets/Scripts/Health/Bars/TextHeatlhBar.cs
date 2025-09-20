@@ -9,7 +9,6 @@ public class TextHeatlhBar : HealthBar
     private void Awake()
     {
         _text = GetComponent<TextMeshProUGUI>();
-        _healthStats = _vitality;
     }
 
     private void Start()
@@ -19,6 +18,6 @@ public class TextHeatlhBar : HealthBar
 
     protected override void UpdateHealthData()
     {
-        _text.text = ((int)_healthStats.CurrentHealth).ToString() + "/" + ((int)_healthStats.MaxHealth).ToString(); 
+        _text.text = ((int)_vitality.CurrentHealth).ToString() + "/" + ((int)_vitality.MaxHealth).ToString(); 
     }
 }

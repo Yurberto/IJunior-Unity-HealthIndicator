@@ -2,32 +2,12 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent (typeof(Button))]
-public class HealButton : MonoBehaviour
+public class HealButton : VitalityButton
 {
-    [SerializeField] private Vitality _vitality;
     [SerializeField, Range(0, 100)] private float _healAmount = 20f;
 
-    private Button _button;
-    private IHealable _healable;
-
-    private void Awake()
+    protected override void HandleClick()
     {
-        _button = GetComponent<Button>();
-        _healable = _vitality;
-    }
-
-    private void OnEnable()
-    {
-        _button.onClick.AddListener(Heal);
-    }
-
-    private void OnDisable()
-    {
-        _button.onClick.RemoveListener(Heal);   
-    }
-
-    private void Heal()
-    {
-        _healable.Heal(_healAmount);
+        _vitality.Heal(_healAmount);
     }
 }

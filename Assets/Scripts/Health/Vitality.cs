@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class Vitality : MonoBehaviour, IDamageable, IHealable, IHealthStats
+public class Vitality : MonoBehaviour
 {
     [SerializeField, Range(50, 100)] private float _maxHealth = 100;
     [SerializeField, Range(0, 100)] private float _health = 100;
@@ -27,7 +27,10 @@ public class Vitality : MonoBehaviour, IDamageable, IHealable, IHealthStats
 
     public void TakeDamage(float damage)
     {
-        _health -= Mathf.Clamp(damage, 0, _health);
+        if (damage < 0)
+            return;
+
+        _health = Math.Max(_health - damage, 0);
         HealthChanged?.Invoke();
     }
 }

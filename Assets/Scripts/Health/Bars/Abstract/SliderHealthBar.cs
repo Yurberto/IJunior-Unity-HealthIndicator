@@ -8,10 +8,11 @@ public abstract class SliderHealthBar : HealthBar
 
     protected virtual void Awake()
     {
-        _healthStats = _vitality;
         _slider = GetComponent<Slider>();
 
         _slider.minValue = 0;
-        _slider.maxValue = _healthStats.MaxHealth;
+        _slider.maxValue = 1;
+
+        _slider.value = _vitality.CurrentHealth / _vitality.MaxHealth;
     }
 }
