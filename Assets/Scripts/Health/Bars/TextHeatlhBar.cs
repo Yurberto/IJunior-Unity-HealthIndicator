@@ -18,6 +18,6 @@ public class TextHeatlhBar : HealthBar
 
     protected override void UpdateHealthData()
     {
-        _text.text = ((int)_vitality.CurrentHealth).ToString() + "/" + ((int)_vitality.MaxHealth).ToString(); 
+        _text.text = ((int)Vitality.CurrentHealth).ToString() + "/" + ((int)Vitality.MaxHealth).ToString(); 
     }
 }

@@ -7,6 +7,6 @@ public class DiscreteHealthBar : SliderHealthBar
 
     protected override void UpdateHealthData()
     {
-        _slider.value = _vitality.CurrentHealth / _vitality.MaxHealth;
+        Slider.value = Vitality.CurrentHealth / Vitality.MaxHealth;
     }
 }

@@ -4,23 +4,23 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Button))]
 public abstract class VitalityButton : MonoBehaviour
 {
-    [SerializeField] protected Vitality _vitality;
+    [SerializeField] protected Vitality Vitality;
     
-    protected Button _button;
+    protected Button Button;
 
     protected void Awake()
     {
-        _button = GetComponent<Button>();
+        Button = GetComponent<Button>();
     }
 
     protected void OnEnable()
     {
-        _button.onClick.AddListener(HandleClick);
+        Button.onClick.AddListener(HandleClick);
     }
 
     protected void OnDisable()
     {
-        _button.onClick.RemoveListener(HandleClick);
+        Button.onClick.RemoveListener(HandleClick);
     }
 
     protected abstract void HandleClick();

@@ -18,13 +18,13 @@ public class SmoothHealthBar : SliderHealthBar
 
     private IEnumerator ChangeHealthCoroutine()
     {
-        float start = _slider.value;
-        float target = _vitality.CurrentHealth / _vitality.MaxHealth;
+        float start = Slider.value;
+        float target = Vitality.CurrentHealth / Vitality.MaxHealth;
         float time = 0;
 
-        while (_slider.value != target)
+        while (Slider.value != target)
         {
-            _slider.value = Mathf.Lerp(start, target, time);
+            Slider.value = Mathf.Lerp(start, target, time);
             time += _changeSpeed / _timeFactor;
             yield return null;
         }
