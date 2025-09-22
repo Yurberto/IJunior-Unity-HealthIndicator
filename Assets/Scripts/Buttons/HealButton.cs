@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent (typeof(Button))]
-public class HealButton : VitalityButton
+public class HealButton : HealthButton
 {
     [SerializeField, Range(0, 100)] private float _healAmount = 20f;
 
