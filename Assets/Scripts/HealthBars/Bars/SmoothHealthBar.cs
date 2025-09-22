@@ -24,7 +24,7 @@ public class SmoothHealthBar : ImageHealthBar
 
         var wait = new WaitForSeconds(Time.deltaTime);
 
-        while (FillZone.Value != target)
+        while (Mathf.Approximately(FillZone.Value, target))
         {
             FillZone.ApplyFill(Mathf.Lerp(start, target, time));
             time += _changeSpeed / _timeFactor;
