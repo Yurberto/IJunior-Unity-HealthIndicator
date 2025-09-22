@@ -6,12 +6,12 @@ public abstract class HealthBar : MonoBehaviour
 
     protected void OnEnable()
     {
-        Health.HealthChanged += UpdateHealthData;
+        Health.ValueChanged += UpdateHealthData;
     }
 
     protected void OnDisable()
     {
-        Health.HealthChanged -= UpdateHealthData;
+        Health.ValueChanged -= UpdateHealthData;
     }
 
     protected abstract void UpdateHealthData();

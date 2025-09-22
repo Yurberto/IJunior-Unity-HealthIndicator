@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class SmoothHealthBar : SliderHealthBar
+public class SmoothHealthBar : ImageHealthBar
 {
     [SerializeField, Range(0.01f, 1.0f)] private float _changeSpeed = 1.0f;
     [SerializeField, Range(0.1f, 100.0f)] private float _timeFactor = 100.0f;
@@ -18,15 +18,15 @@ public class SmoothHealthBar : SliderHealthBar
 
     private IEnumerator ChangeHealthCoroutine()
     {
-        float start = Slider.value;
-        float target = Health.CurrentHealth / Health.MaxHealth;
+        float start = FillZone.Value;
+        float target = Health.CurrentValue / Health.MaxValue;
         float time = 0;
 
         var wait = new WaitForSeconds(Time.deltaTime);
 
-        while (Slider.value != target)
+        while (FillZone.Value != target)
         {
-            Slider.value = Mathf.Lerp(start, target, time);
+            FillZone.ApplyFill(Mathf.Lerp(start, target, time));
             time += _changeSpeed / _timeFactor;
             yield return wait;
         }

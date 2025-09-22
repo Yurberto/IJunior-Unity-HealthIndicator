@@ -1,4 +1,4 @@
-public class DiscreteHealthBar : SliderHealthBar
+public class DiscreteHealthBar : ImageHealthBar
 {
     private void Start()
     {
@@ -7,6 +7,6 @@ public class DiscreteHealthBar : SliderHealthBar
 
     protected override void UpdateHealthData()
     {
-        Slider.value = Health.CurrentHealth / Health.MaxHealth;
+        FillZone.ApplyFill(Health.CurrentValue / Health.MaxValue);
     }
 }
